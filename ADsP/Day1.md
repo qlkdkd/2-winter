@@ -1,4 +1,4 @@
-# 1. 데이터의 이해
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/5eef371a-b33e-4ae9-b86e-27dcf470f141)# 1. 데이터의 이해
 ## 01. 데이터와 정보
 ### 1. 데이터의 정의
 ### (1) 데이터의 정의
@@ -85,7 +85,8 @@
 * 다양한 정보를 필요에 따라 신속하게 제공, 이용할 수 있는 인프라의 특성: 경제, 산업, 사회 활동의 효율성 제고, 국민의 편의를 증진하는 수단으로써의 의미 가짐
 
 ### 2. 활용
-### (1) 기업 내부의 데이터베이스
+### (1) 데이터베이스 활용용
+#### (1) 기업 내부의 데이터베이스
 * 인하우스 DB: 1990년대 정보통신망 구축이 가속화-> 기업 경영 전반에 관한 모든 자료를 연계-> 일관된 체계로 구축 및 운영하는데 중점-> 이후 경영활동의 기반이 되는 전사자원관리시스템(ERP)로 확대
 * OLTP(OnLine Transaction Processing): 1990년대 이전, 정보의 수집과 이를 조직 내에서 공유하기 위한 경영정보시스템(MIS)과 생산 자동화, 통합 자동화 등 기업 활동에서 영역별로 구축되던 단순 자동화 중심의 시스템
 * OLAP(OnLine Analytical Processing): 데이터 마이닝 등의 기술 등장-> 단순한 정보의 '수집'과 '공유'에서 탈피하여 '분석'이 중심이 되는 시스템 구축으로 변화
@@ -121,7 +122,7 @@
  
 * RTE(Real Time Enterprise): 기업의 업무 프로세스에서 발생하는 정보를 실시간으로 통합 및 전달해서 신속한 대응이 가능한 스피드 경영
 
-### (2) 산업 부문별 데이터베이스 발전 과정
+#### (2) 산업 부문별 데이터베이스 발전 과정
 제조부문
    * 데이터베이스 기술의 가장 중요한 적용 분야
    * 2000년대 이전 부품 테이블이나 재고 관리 등 영역에서 활용
@@ -142,19 +143,97 @@
    * 상거래를 위한 각종 인프라 및 KMS를 위한 별도의 백업 시스템이 구축됨
    * 최근 RFID의 등장은 대량의 상품을 거래하는 유통 부문에 적용되었을 때 파급효과가 매우 클 것으로 전망, 향후 이를 지원하는 대용량 데이터베이스를 지원하는 플랫폼이 요구되는 사항
 
-### (3) 사회기반구조로서의 데이터베이스
+#### (3) 사회기반구조로서의 데이터베이스
 * 1990년대 사회 각 부문의 정보화 본격화-> DB구축 활발하게 추진
 * 이후 무역, 통관, 물류, 조세, 국세, 조달 등 사회간접자본(SOC) 차원에서 EDI활용이 본격화-> 부가가치통신망(VAN)을 통한 정보망 구축
 * 지리, 교통 부문의 데이터베이스는 고도화, 의료, 교육, 행정 등 사회 각 부문으로 공공 DB의 구축, 이용이 확대
 
-물류 부문
-   * 실시간 차량 추적을 위한 종합물류정보망 구축
-   * CVO서비스, EDI서비스, 물류 정보 DB서비스, 부가서비스로 구성
-   * CALS(COmmerce At Light Speed): 제품의 설계, 개발, 생산에서 유통, 폐기에 이르기까지 제품의 라이프사이클 전반에 관련된 데이터를 통합하고, 공유, 교환할 수 있게 한 경영통합정보시스템
-   * PORT-MIS: 항만운영정보시스템
-   * KROIS: 철도운영정보시스템
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/9e96e981-70f7-4245-a112-dac5e08eca3e)
 
-지리부문
-   * GIS응용에 활용되는 4S 통합기술
-   * 지리정보유통망 기시화: 지리정보 통합관리소 운영, 지리정보 수요자에 정보 제공
-   * GIS(Geographic Information System): 지리정보 시스
+
+### (2) 데이터베이스 종류
+#### (1) 종류
+* 관계형 DB
+   * 데이터를 행과 열로 이뤄진 테이블에 저장
+   * 하나의 열은 하나의 속성
+   * 저장방식은 구조적으로는 엑셀 파일과 유사
+   * 정형 데이터를 다루는데 특화
+* NoSQL
+   * Not Only SQL 또는 Non-relation SQL의 약자로 관계형이 아닌 비관계형을 의미하는 단어에서 생성된 명칭
+   * SQL이 필요없다는 의미가 아니라 기존 RDB의 SQL을 보완 및 개선한 비관계형 DB라는 의미를 담고 있음
+   * 비정형 데이터와 대용량 데이터 분석 및 분산처리에 용이함
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/14f0c5a5-a2f0-40bb-9087-7466402916b9)
+
+#### (2) SQL의 이해
+* SQL(Structured Query Language)는 DBMS에서 데이터베이스에 명령을 내리는 데이터베이스의 하부 언어
+* SQL은 DB(Oracle, MySQL, MS-SQL등)마다 문법이 서로 다르지만, 기본적인 데이터 추출과 분석에 사용되는 문법은 거의 동일
+* 한국데이터산업진흥원 SQL교재는 기본적으로 Oracle을 기반으로 함
+* SQL언어는 크게 DDL(데이터 정의어), DML(데이터 조작어), DCL(데이터 제어어)로 나뉨\
+
+#### 데이터베이스 언어
+* DDL
+   * `create`: 테이블 생성
+   * `alter`: 테이블 정보 변경
+   * `rename`: 테이블 이름 변경
+   * `drop`: 테이블 삭제
+* DML
+   * `select`: 테이블에 포함된 데이터 검색
+   * `insert`: 테이블에 데이터 삽입
+   * `update`: 테이블 내 데이터 변경
+   * `delete`: 테이블 내 데이터 삭제
+* DCL
+   * `grant`: 사용자에게 권한 부여
+   * `revoke`: 사용자 권환 회수
+* TCL(트랜잭션 언어)
+   * `commit`: 변경된 데이터 일괄 적용
+   * `savepoint`: 현재 데이터 상태 기억
+   * `rollback`: commit이 되지 않았으면 변경사항들에 대한 명령 철회/특정 savetpoint로 되돌아감
+ 
+#### select의 기본 질의 문법
+```sql
+select * from emp;#emp테이블의 모든 칼럼을 조회('*'는 모든 칼럼명을 의미)
+select * from emp where sal>=1000;#emp테이블에서 sal이 1000이상인 데이터의 모든 칼럼을 조회
+select * from emp where empno is not null;#emp테이블에서 empno가 null이 아닌 데이터를 조회
+```
+#### select 집계 함수 문법
+* 집계 함수는 특정 칼럼의 데이터에 대해 데이터의 개수, 합계, 최댓값, 최솟값, 평균 등의 요약값을 구하는 데 사용됨
+* 기본 문법: `select(칼럼명) from(테이블명) where(조건절) group by(대상칼럼) having(대상칼럼조건)`
+   * `having`: 그룹화할 대상을 정의하는 조건절
+   * `where`: 그룹화된 최종 결과에 대한 조건절
+
+*  다음은 오라클 내장 데이터 EMP 테이블의 일부
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/3919a220-a0e5-440e-bce9-5a4cfe423543)
+```sql
+#1.emp테이블의 각 부서번호(deptno)별 sal의 합계를 계산
+select deptno sum(sal) as sum_sal from emp group by deptno;
+
+#2. emp테이블의 부서번호(deptno)가 10보다 큰 부서에 대해 각 부서번호(deptno)별 최소 sal을 계산
+select deptno, min(sal) as min_sal from emp group by deptno having deptno>10;
+
+#3. emp 테이블의 각 부서번호(deptno)별 sal의 합계를 계산한 뒤, 합계가 3000 이하인 데이터를 출력
+select deptno sum(sal) as sum_sal from emp group by deptno where sum_sal<3000;
+
+#4. emp테이블의 각 부서번호(deptno)별 데이터의 개수를 구함
+select deptno, count(*) as count from emp group ny deptno;
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/f32ca76d-1529-45bb-9b70-64e8d9201763)
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/2c28f472-f167-4a73-ae50-7daab2c26922)
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/21d84c3e-90db-4b38-b49f-fd99161e0b02)
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/c70d1d2e-8056-4052-91b0-dd2033c4939b)
+
+#### 데이터베이스 구성요소
+* 인스턴스: 하나의 객체를 의미, 존재하는 모두 인스턴스가 될 수 있다
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/6a88305e-d94a-4df9-aec5-c4bed7f41cde)
+* 속성: 객체를 표현하기 위해 사용되는 값
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/66270718-7711-4d72-8471-4b68cd4f12cf)
+* 엔터티: 데이터의 집합. 실체가 존재하는 테이블과 다리 개념적인 존재로서 개념, 장소, 사건 모두 엔티티로 여겨질 수 있음
+   * 엔터티는 2개이상의 인스턴스와 1개 이상의 속성을 보유해햐 함
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/d3ab8842-ec24-41d3-baf1-f788ae2bad6c)
+
+* 메타데이터: 데이터를 설명하는 데이터
+   * 예) 사진 파일의 속성 정보를 보면 사진파일이 언제, 어디서 생성되었는지를 알려주는 추가적인 데이터
+* 인덱스: 데이터를 저장할 때 내부에서 자동적으로 생성되는 데이터의 이름. 책의 색인과 비슷한 역할
+
+#### 데이터마트(DM)과 데이터 웨어하우스(DW)
+* 데이터 웨어하우스: 분산된 환경에 흩어져 있는 데이터들을 개인이나 조직이 총체적인 관점에서 의사결정을 위해 공통의 형식으로 변환해 관리하는 역할.
+* 데이터 마트: 데이터 웨어하우스로부터 추출된 작은 데이터베이스로, 특정 목표를 달성하는데 필요한 데이터를 제공하는 역할
