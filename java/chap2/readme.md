@@ -88,7 +88,7 @@ public class variable2 {
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/e4f6ad2a-5edf-42e2-9650-682f1133ff13)
 
 ### 기본 자료형의 종류
-바이트/타입|정수형|문자형|실수형|논리형
+바이트\타입|정수형|문자형|실수형|논리형
 ---|---|---|---|---
 1바이트|byte|-|-|boolean
 2바이트|short|char|-|-
