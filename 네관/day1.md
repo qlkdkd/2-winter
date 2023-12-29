@@ -143,6 +143,14 @@
      * Cartegory 6: 데이터 전송 최대 속도 1Gbps
    
   2. 동축 케이블(Coaxial Cable)
+  ![image](https://github.com/qlkdkd/2-winter/assets/71871927/4653ee11-c9cb-468a-b976-04b06497f6cd)
      * 구성
        * 중앙에 위치한 와이어와 와이어를 둘러싸는 차폐용 그물망, 총 2개의 전도체로 구성
-       * 중앙 
+       * 중앙 와이어와 주변 그물망 사이는 절연체로 분리
+       * 모니터 연결 단자인 DVI방식과 유사
+     * 장점
+       * 설치 용이
+       * 이중 나선 케이블보다 큰 대역폭 지원-> 한번에 많은 데이터 빠르게 전송 가능
+     * 단점: 이중 나선 케이블보다 비쌈
+  ![image](https://github.com/qlkdkd/2-winter/assets/71871927/3070d2c8-28ed-411b-8d6f-915d65b06980)
+
