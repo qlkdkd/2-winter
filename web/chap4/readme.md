@@ -68,3 +68,61 @@
 </body>
 ```
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/fdef5b30-355d-4fc7-bb36-10443c2bdb52)
+
+### `<b>`, `<strong>`: 굵게 표시
+```html
+<b>굵게 표시</b>
+<strong>굵게 강조</strong>
+```
+* 경고나 주의사항처럼 중요한 내용을 강조-> strong
+* 단순히 굵게 표시: b
+
+```html
+<body>
+    <h1>레드향</h1>
+    <p>껍질에 붉은 빛이 돌아 <b>레드향</b>이라 불린다.</p>
+    <p>레드향은 한라봉과 귤을 교배한 것으로
+        <br>일반 귤보다 2~3배 크고, 과육이 붉고 통통하다.
+    </p>
+    <blockquote>비타민 C와 비타민 P가 풍부해 <br><strong>혈액순환, 감기예방</strong> 등에 좋은 것으로 알려져 있다.</blockquote>
+</body>
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/98be2c54-cb93-4535-bc13-2d2bc95b37a2)
+
+### `<em>`, `<i>`: 기울여서 표시
+```html
+<em>이탤릭체로 강조할 텍스트</em>
+<i>이탤릭체로 표시할 텍스트</i>
+```
+* em
+    * 강조를 뜻하는 emphasis에서 유래
+    * 문장에서 흐름상 특정 부분을 강조할 때 사용
+* i
+    * 이탤릭체에서 유래
+    * 마음속의 생각이나 용어, 관용구 등에 사용
+ 
+### 기타 텍스트 관련 태그
+
+종류|설명|예시
+---|---|---
+`<abbr>`|줄임말 표시, title 속성을 함께 사용할 수 있음|`<abbr title="Internet of Things">IoT</abbr>`
+`<cite>`|웹 문서나 포스트에서 참고 내용 표시|`<p>내가 경험한 가장 흥미진진한 일은 누군가를 만나는 일이다-영화<cite>중</cite>`
+`<code>`|컴퓨터 인식을 위한 소스코드|`<code>function savetheLocal</code>`
+`<small>`|부가 정보처럼 작게 표시해도 되는 텍스트|`<p>가격: 13000원 <small>(부가세 별도)</small></p>`
+`<sub>`|아래첨자 표시|`<p>물의 화학식: H<sub>2</sub>O</p>`
+`<sup>`|윗첨자 표시|`<p>E=mc<sup>2</sup>`
+`<s>`|취소선 표시|`<p><s>34000원</s>19000원</p>`
+`<u>`|밑줄 표시|`<u>텍스트에 단순히 밑줄 긋기</u>`
+`<ins>`|공동 작업 문서에 새로운 내용 삽입|`<ins>새로운 내용 삽입</ins>`
+`<del>`|공동 작업 문서에 기존 내용 삭제|`<del>기존 내용 삭제</del>`
+
+```html
+<body>
+    <p>
+        <i>비타민 C</i>와 <i>비타민 p</i>가 풍부해<br>
+        혈액순환<sup>1</sup> <ins>또는</ins>
+        감기예방<sub>2</sub> 등에
+        좋<del>은 것으로 알려져 있</del>다
+    </p>
+</body>
+```
