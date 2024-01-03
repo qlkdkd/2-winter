@@ -116,6 +116,7 @@
 `<ins>`|공동 작업 문서에 새로운 내용 삽입|`<ins>새로운 내용 삽입</ins>`
 `<del>`|공동 작업 문서에 기존 내용 삭제|`<del>기존 내용 삭제</del>`
 
+#### 예제
 ```html
 <body>
     <p>
@@ -126,3 +127,33 @@
     </p>
 </body>
 ```
+
+---
+
+## 4-2. 목록 만들기
+### `<ol>`, `<li>`: 순서 있는 목록
+```html
+<ol>
+        <li>항목 1</li>
+        <li>항목 2</li>
+    </ol>
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/a1a7e057-0180-4a15-b45c-7499920713a5)
+
+#### type, start 속성
+종류|설명
+---|---
+`type="1"`|숫자(기본값)
+`type="a"`|영문 소문자
+`type="A"`|영문 대문자
+`type="i"`|로마숫자 소문자
+`type="I"`|로마숫자 대문자
+
+예시
+```html
+<ol type="a">
+        <li>항목 1</li>
+        <li>항목 2</li>
+    </ol>
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/ae970851-02e0-4180-bfa1-04b0900f8cfe)
