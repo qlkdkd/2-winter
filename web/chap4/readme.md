@@ -157,3 +157,87 @@
     </ol>
 ```
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/ae970851-02e0-4180-bfa1-04b0900f8cfe)
+
+### `<ul>`, `<li>`: 순서 없는 목록
+```html
+<ul>
+    <li>항목 1</li>
+    <li>항목 2</li>
+</ul>
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/2c95dd03-71fa-46e9-9e77-c5195117b49d)
+
+### `<dl>`, `<dt>`, `<dd>`: 설명 목록
+```html
+    <dl>
+        <dt>이름</dt>
+        <dd>값</dd>
+    </dl>
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/6dff7fab-d0b0-4f35-9229-367a0285e04c)
+* 설명 목록: 이름과 값 형태로 된 목록
+
+---
+
+## 4-3: 표 만들기
+### `<table>`, `<caption>`: 표 만들기
+### `<tr>`, `<td>`: 표의 행과 열
+```html
+    <table>
+        <caption>표 제목</caption>
+        <tr>
+            <td>1행 1열</td>
+            <td>1행 2열</td>
+        </tr>
+        <tr>
+            <td>2행 1열</td>
+            <td>2행 2열</td>
+        </tr>
+    </table>
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/4a8baf18-c47a-4d49-b0f8-6024327a6bd5)
+
+* table: 표의 시작과 끝
+* caption: 표 제목
+* tr: 테이블 행
+* td: 테이블 열
+
+### `<thead>`, `<tbody>`, `<tfoot>`: 표의 구조
+* thead: 표의 제목
+* tbody: 표의 본문
+* tfoot: 표의 요약
+```html
+    <h2>상품 구성</h2>
+    <table>
+        <caption>선물용과 가정용 상품 구성</caption>
+        <thead>
+            <tr>
+                <th>용도</th>
+                <th>중량</th>
+                <th>개수</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>선물용</td>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>35000원</td>
+            </tr>
+        </tbody>
+    </table>
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/12031fb2-3544-4437-a941-13fa372ce3f7)
+
+### `rowspan`, `colspan`: 행/열 합치기
+```html
+<td rowspan="합칠 셀의 개수>셀의 내용</td>
+<td colspan>="합칠 셀의 개수>셀의 내용</td>
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/4f024361-30d5-4a12-900e-7e397abc9ea3)
+
+#### 예제
+```html
+
+```
