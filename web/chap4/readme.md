@@ -239,5 +239,18 @@
 
 #### 예제
 ```html
-
+    <table>
+        <tr>
+            <td rowspan="2">선물용</td>
+            <td>3kg</td>
+            <td>11~16과</td>
+            <td>35000원</td>
+        </tr>
+        <tr>
+            <td>5kg</td>
+            <td>18~26과</td>
+            <td>52000원</td>
+        </tr>
+    </table>
 ```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/701009c8-cacf-4c3f-abf1-4b216ae865e5)
