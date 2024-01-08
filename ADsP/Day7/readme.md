@@ -46,3 +46,5 @@ class("abc")
 class('TRUE')
 ```
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/bd5db3f9-4618-4b64-a401-5358f7aa230b)
+
+  2. 숫자형 타
