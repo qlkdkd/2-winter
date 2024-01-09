@@ -47,4 +47,108 @@ class('TRUE')
 ```
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/bd5db3f9-4618-4b64-a401-5358f7aa230b)
 
-  2. 숫자형 타
+  2. 숫자형 타입
+       * 계산이 가능한 데이터
+       * numeric(숫자형), double(실수형), integer(정수), complex(복소수)
+```r
+class('ABC')
+class("abc")
+class('TRUE')
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/519e8460-c75c-4307-a54b-f6ab0f50fce1)
+  3. 논리형 타입
+       * 참/ 거짖
+```r
+class(TRUE)
+class(FALSE)
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/535c0da0-6932-466d-b997-9d32e2ffc1ef)
+
+  4. NaN, NA, NULL
+      * NaN: Not a Number의 약자, 음수의 제곱근을 구하려고 시도하는 것과 같은 경우에 오류와 함께 숫자가 아님을 반환
+      * NA(Not Available): 공간을 차지하는 결측값
+      * NULL: 공간을 차지하지 않는 존재하지 않는 값
+```r
+sqrt(-3)
+class(NA)
+class(NULL)
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/c96c0b09-7dc8-4dc8-a686-4caf45d3672d)
+
+### 2. R 기본문법
+### (1) 연산자
+1. 대입 연산자
+  * 대입 연산자는 변수에 값을 할당하기 위해 사용하는 연산자
+  * 변수에 값이 정상적으로 할당-> RStudio의 오른쪽 상단에 있는 환경 창에 변수와 그에 대응되는 값 혹은 데이터의 개요가 등록됨
+대입 연산자|내용
+---|---
+`<-`, `<<-`, `=`|오른쪽 값을 왼쪽에 대입
+`->`, `->>`|왼쪽 값을 오른쪽에 대입
+
+```r
+string1<-'abc'
+"data"->string2
+number1<<- 15
+Inf->>num2
+logical=NA
+```
+
+2. 비교 연산자
+  * 대입 연산자에 의하여 할당된 값과 변수를 비교하거나 임의의 숫자, 문자 혹은 논리값을 비교할 수 있음
+  * NA는 비교할 값이 존재하지 않으므로 어떤 것과 비교를 하더라도 NA 반환함
+
+비교 연산자|내용
+---|---
+==|두 값이 같은지 비교
+`<`, `>`|초과, 미만을 비교
+`!=`|두 값이 다른지를 비교
+`<=`, `=>`|이상, 이하를 비교
+`is.character`|문자형인지 아닌지를 비교
+`is.numeric`|숫자형인지 아닌지를 비교
+`is.logical`|논리형인지 아닌지를 비교
+`is.na`|NA인지 아닌지를 비교
+`is.null`|NULL인지 아닌지를 비교
+
+```r
+string1=='abc'
+string1!'abcd'
+string2>'DATA'
+number1<=15
+is.na(logical)
+is.null(NULL)
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/d1e993a2-ecb4-4c75-9a10-200df81527f6)
+
+3. 산술 연산자
+산술 연산자|내용
+---|---
+`+`|덧셈
+`-`|뻴셈
+`*`|곱셈
+`/`|나눗셈
+`%/%`|몫
+`%$`|나머지
+`^`, `**`|거듭제곱
+`exp()`|자연상수 거듭제곱
+
+4. 논리 연산자
+논리 연산자|내용
+---|---
+`!`|not 연산자
+`&`|and 연산자
+`|`|or 연산자
+
+### (2) R 데이터 구조
+1. 벡터
+  * 벡터는 타입이 같은 여러 데이터를 하나의 행으로 저장하는 1차원 데이터 구조
+  * '연결한다'라는 의미의 'connection'의 c를 써서 데이터를 묶을 수 있다.
+  * 벡터를 생성할 때 c안에 콜론(:)을 활용하여 시작값과 끝값을 지정해 벡터를 생성할 수 있다.
+```r
+v4=c(3, TRUE, FALSE)
+v4
+v5=c('a', 1, TRUE)
+v5
+v1=c(1:6)
+v1
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/15276792-bc72-45b7-aa5f-bec581aa192c)
