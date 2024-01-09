@@ -217,3 +217,88 @@ df1
 ### (3) R 내장함수
 1. 기본함수
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/31910109-c825-45eb-ab8b-7cc371160075)
+```r
+help(paste)
+?paste
+
+paste('This is', 'a pen')
+
+seq(1, 10, by=2)
+
+rep(1, 5)
+
+a=1
+a
+rm(a)
+a
+
+ls()
+print(10)
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/77e7fc95-0bf8-4047-b542-2df5fb0f8f3e)
+
+2. 통계함수
+함수|내용|예시
+`sum`|입력된 값의 합을 구한다|`sum(vector1)`
+`mean`|입력된 값의 평균을 구한다|`mean(vector1)`
+`median`|입력된 값의 중앙값을 구한다|`median(vector1)`
+`var`|입력된 값의 표본 분산을 구한다|`var(vector1)`
+`sd`|입력된 값의 표본 표준편차를 구한다.|`sd(vector1)`
+`max`|입력된 값의 최댓값을 구한다.|`max(vector1)`
+`min`|입력된 값의 최솟값을 구한다.|`min(vector1)`
+`range`|입력된 값의 최댓값되 최솟값을 구한다.|`range(vector1)`
+`summary`|입력된 값의 요약값을 구한다.|`summary(vector1)`
+`skewness`|입력된 값의 왜도를 구한다.|`skewness(vector1)`
+`kurtosis`|입력된 값의 척도를 구한다.|`kurtosis(vector1)`
+
+```r
+v1=c(1:9)
+sum(v1)
+mean(v1)
+median(v1)
+var(v1)
+sd(v1)
+max(v1)
+min(v1)
+range(v1)
+summary(v1)
+#첨도와 왜도 값 계산 함수를 사용하려면 별도의 패키지가 필요함
+library(fBasics)
+skewness(v1)
+attr(, "method")
+
+kurtosis(v1)
+attr(, "method")
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/a5e66c61-cc8f-4c82-a3f7-b225bf772206)
+
+### (4) R 데이터 핸들링
+1. 데이터 이름 변경
+  * 2차원 이상의 데이터 구조는 `colnames`와 `rownames` 함수를 사용하여 행과 열의 이름을 알 수 있으며 이름을 지정할 수 있음
+```r
+m1=matrix(c(1:6), nrow=2)
+colnames(m1)=c('c1', 'c2', 'c3')
+rownames(m1)=c('r1', 'r2')
+m1
+
+colnames(m1)
+rownames(m1)
+
+df1=data.frame(x=c(1, 2, 3), y=c(4, 5, 6))
+colnames(df1)=c('c1', 'c2')
+rownames(df1)=c('r1', 'r2', 'r3')
+df1
+
+colnames(df1)
+rownames(df1)
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/9045daa4-fe32-41ed-ae0b-ef60b83b4e18)
+
+2. 데이터 추출
+   * R이 보유한 여러 데이터 구조 모두 인덱싱 지원-> 대괄호 기호`([, ])`를 사용하여 원하는 위치의 데이터를 손쉽게 얻을 수 있음
+   * 행과 열의 이름으로도 데이터를 얻을 수 있음
+   * 데이터프레임에서는 `$`기호를 사용하여 원하는 열의 데이터를 구할 수 있으며, `$`와 `[]`를 혼용할 수 있다.
+
+```r
+
+```
