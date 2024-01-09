@@ -239,6 +239,7 @@ print(10)
 
 2. 통계함수
 함수|내용|예시
+---|---|---
 `sum`|입력된 값의 합을 구한다|`sum(vector1)`
 `mean`|입력된 값의 평균을 구한다|`mean(vector1)`
 `median`|입력된 값의 중앙값을 구한다|`median(vector1)`
