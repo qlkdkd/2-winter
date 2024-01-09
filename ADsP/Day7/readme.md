@@ -152,3 +152,68 @@ v1=c(1:6)
 v1
 ```
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/15276792-bc72-45b7-aa5f-bec581aa192c)
+
+2. 행렬
+  * 2차원 구조를 가진 벡터.
+  * 벡터의 성질-> 행렬에 저장된 모든 데이터는 같은 타입이여야 함
+  * 그렇지 못할 경우 자동으로 타입 변환 수행
+  * matrix를 사용하여 행렬을 만들 경우, 행의 수를 결정하거나 ncol을 사용하여 열의 수를 결정할 수 있다.
+  * matrix를 사용하여 행렬을 만들 경우 행렬의 값들이 열로 저장되는 것을 볼 수 있다. 하지만 byrow옵션에 T(TRUE)를 지정하면 열이 아닌 행으로 저장된다.
+  * dim함수를 사용하면 행의 개수와 열의 개수를 지정하여 행렬로 변환 가능
+     * dim함수는 벡터를 행렬로 변환할 뿐만 아니라 주어진 행렬이 몇 개의 행과 몇 개의 열로 구성되어 있는지 행렬의 크기를 나타내기도 한다.
+```r
+m1=matrix(c(1:6), nrow=2)#3*2행렬
+m1
+m2=matrix(c(1:6), ncol=2)#2*3행렬
+m2
+m3=matrix(c(1:6), nrow=2, byrow=T)#m1의 전치행렬
+m3
+v1=c(1:6)
+v1
+dim(v1)=c(2, 3)
+v1
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/ebca07eb-37f6-44d7-a4fd-3ee9c5413d46)
+
+3. 배열
+  * 3차원 이상의 구조를 갖는 벡터
+  * 배열 또한 벡터의 성질-> 하나의 배열에 포함된 데이터는 모두 같은 타입
+     * array를 사용하여 배열 만들 수 있음
+     * 몇 차원의 구조를 갖는지 dim 옵션에 명시해야 함-> 그렇지 않으면 1차원 벡터 생성
+  * dim함수를 사용해서 벡터에 차원을 지정해 만들 수 있음
+```r
+a1=array(c(1:12), dim=c(2, 3, 2))
+a1
+a2=c(1:12)
+dim(a2)=c(2, 3, 2)
+a2
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/b1b075e9-6942-427f-911f-7bc24be911f9)
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/4191a763-12d9-4a0e-998c-919ccbb0e749)
+
+4. 리스트
+  * 데이터 구조에 상관 없이 사용자가 원하는 모든 것을 저장할 수 있는 자료구조
+```r
+L=list()
+L[[1]]=5
+L[[2]]=c(1:6)
+L[[3]]=matrix(c(1:6), nrow=2)
+L[[4]]=array(c(1:12), dim=c(2, 3, 2))
+L
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/1e2df5fa-b7bc-41b5-be00-f61333a87a22)
+
+5. 데이터프레임
+  * 데이터 분석을 위한 2차원 구조를 갖는 관계형 데이터구조-> R에서 가장 많이 활용되는 데이터구조
+  * 행렬과 같은 모양, 여러개의 벡터로 구성-> 각 열은 서로 다른 타입의 데이터를 가질 수 있음
+```r
+v1=c(1, 2, 3)
+v2=c('a', 'b', 'c')
+df1=data.frame(v1, v2)
+df1
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/4ed26fa4-88d7-4886-8ff1-542d08e7b8ba)
+
+### (3) R 내장함수
+1. 기본함수
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/31910109-c825-45eb-ab8b-7cc371160075)
