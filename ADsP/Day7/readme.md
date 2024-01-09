@@ -238,6 +238,7 @@ print(10)
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/77e7fc95-0bf8-4047-b542-2df5fb0f8f3e)
 
 2. 통계함수
+
 함수|내용|예시
 ---|---|---
 `sum`|입력된 값의 합을 구한다|`sum(vector1)`
