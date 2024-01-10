@@ -497,3 +497,81 @@ apply(df1, 1, sum)
 apply(df1, 2, sum)
 ```
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/5a0a7772-6e27-4304-8d25-b0e5fea7ccfe)
+
+7. 정규 분포(기본값은 표준 정규분포로 mean=0, sd=1)
+
+함수|내용
+---|---
+`dnorm`|정규 분포에서 주어진 값에서 함수 값을 구함
+`rnorm`|정규 분포에서 주어진 개수만큼 표본을 구함
+`pnorm`|정규 분포에서 주어진 값보다 작을 확률 값을 구함
+`qnorm`|정규 분포에서 주어진 넓이 값을 갖는 x값을 구함
+
+8. 표본추출
+
+함수|내용
+---|---
+`runif`|균일 분포에서 주어진 개수만큼 표본을 추출함
+`sample`|주어진 데이터에서 주어진 개수만큼 표본을 추출함
+
+9. 날짜
+
+함수|내용
+---|---
+`Sys.date`|연, 월, 일 출력
+`Sys.time`|연, 월, 일, 시간 출력
+`as.Date`|주어진 데이터를 날짜 형식으로 변환
+`format`|원하는 날짜 형식으로 변경
+`as.POSIXct`|타임 스탬프를 날짜 및 시간으로 변환함
+
+```r
+Sys.Date()
+Sys.time()
+as.Date("2020-01-01")
+
+#%Y는 연도 네자리, %y는 연도 두자리, %m은 월, %d는 일, %A는 요일 등
+format(Sys.Date(), '%Y/%m/%d')
+format(Sys.Date(), '%A')
+
+#시간 데이터를 unclass하면 타임 스탬프를 얻을 수 있음
+unclass(Sys.time())
+as.POSIXct(1577804401, origin='1970-01-01')
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/d1d88d38-5d4d-4f82-bde6-0440f1418bc7)
+
+10. 산점도
+
+함수|내용
+---|---
+`plot`|주어진 데이터의 산점도를 그린다
+`abline`|산점도에 추가 직선을 그린다
+
+```r
+x=c(1:10)
+y=rnorm(10)
+#파라미터 type에서 p는 점, l은 직선, b는 점과 직선, n은 아무것도 표시하지 않음을 의미
+#xlim으로 x축의 범위, ylim으로 y축의 범위를 설정할 수 있다
+#xlab, ylab으로 각 축의 이름을 지정할 수 있다
+#main으로 산점도의 이름을 정할 수 있다
+plot(x, y, type='l', xlim=c(-2, 12), ylim=c(-3, 3), xlab='X axis', ylab='Y axis', main='Test plot')
+abline(v=c(1, 10), col='blue')
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/273f44f1-3e47-4009-99aa-823682f45b5e)
+
+11. 파일 입출력
+
+함수|내용
+---|---
+`read.csv`|csv파일을 불러옴
+`write.csv`|주어진 데이터를 csv파일로 저장
+`saveRDS`|분석 모델 및 R 파일을 저장
+`readRDS`|분석 모델 및 R 파일 불러옴
+
+12. rlxk
+
+함수|내용
+---|---
+`install.packages`|패키지 설치
+`library`|설치된 패키지 호출
+`getwd`|작업 디렉터리 확인
+`setwd`|작업 디렉터리 설정
