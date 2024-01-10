@@ -302,5 +302,198 @@ rownames(df1)
    * 데이터프레임에서는 `$`기호를 사용하여 원하는 열의 데이터를 구할 수 있으며, `$`와 `[]`를 혼용할 수 있다.
 
 ```r
+v1=c(3, 6, 9, 12)
+v1[2]
 
+m1=matrix(c(1:6), nrow=3)
+m1[2, 2]
+
+colnames(m1)=(c('c1', 'c2'))
+m1[, 'c1']
+
+rownames(m1)=c('r1', 'r2', 'r3')
+m1['r3', 'c2']
+
+v1=c(1:6)
+v2=c(7:12)
+df1=data.frame(v1, v2)
+df1$v1
+df1$v2
 ```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/e9c677e3-1581-4290-8d04-f992387cee08)
+
+3. 데이터 결합
+  * rbind: 행으로 결합
+  * cbind: 열로 결합
+  * 행렬과 행렬, 데이터프레임과 데이터프레임의 경우 행의 수 또는 열의 수가 같을 경우 결합 가능
+  * 벡터와 벡터의 결합에서는 재사용 규칙으로 인하여 부족한 데이터를 앞에서부터 다시 재활용하여 사용하며 오류와 함께 결과를 반환함
+```r
+v1=c(1, 2, 3)
+v2=c(4, 5, 6)
+rbind(v1, v2)
+cbind(v1, v2)
+
+v1=c(1, 2, 3)
+v2=c(4, 5, 6, 7, 8)
+rbind(v1, v2)
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/2702b237-aac4-4dfd-9331-1175937840da)
+
+### (5) 제어문
+1. 반복문
+  * 특정 부분의 코드가 반복적으로 수행되도록 함
+  * for문, while문
+```r
+for(i in 1:3){
+    print(i)
+}
+
+data=c("a", "b", "c")
+for(i in data){
+    print(i)
+}
+
+i=0
+while(i<5){
+    print(i)
+    i=i+1
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/1d16bb0b-f74e-4e0a-a736-c4f599d8f39d)
+
+2. 조건문
+  * 참과 거짓에 따라 특정 코드가 수행될지 혹은 수행되지 않을지를 결정
+```r
+number=5
+if(number<5){
+  print('number는 5보다 작다')
+}else if(number>5){
+  print("number은 5보다 크다")    
+}else{
+  print("number은 5와 같다")
+}
+
+number=3
+if(number<5){
+  print("number는 5보다 작다")
+}else if(number>5){
+  print("number는 5보다 크다")
+}else{
+  print("number는 5와 같다")
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/167be39c-71ef-4f14-91f6-243c594ee5b4)
+
+3. 사용자 정의 함수
+  * 자주 사용되는 구문을 필요할 때마다 작성하지 않고 하나의 함수로 명명하여 저장하였다가 필요한 경우 함수를 호출해서 대신 사용 가능
+```r
+comparedTo5=function(number){
+  if(number<5){
+    print("number<5")
+  }else if(number>5){
+    print("number>5")
+  }
+  else{
+    print("number==5")
+  }
+}
+
+comparedTo5(10)
+comparedTo5(3)
+comparedTo5(5)
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/4aa30f9c-c054-477c-b24e-8c8ca8e5fa49)
+
+### (6) 통계 분석에서 자주 사용되는 R 함수
+1. 숫자 연산
+
+함수|내용
+---|---
+`sqrt`|주어진 수의 제곱근을 구한다
+`abs`|주어진 수의 절댓값을 구한다
+`exp`|자연상수 e의 제곱수를 구한다
+`log`|밑이 자연상수인 로그 값을 구한다
+`log10`|밑이 10인 로그 값을 구한다
+`pi`|원주율을 나타낸다
+`round`|주어진 수의 반올림 값을 구한다
+`ceiling`|주어진 수를 올림한다
+`floor`|주어진 수를 내림한다
+
+2. 문자 연산
+
+함수|내용
+---|---
+`tolower`|주어진 문자열을 소문자로 바꾼다
+`toupper`|주어진 문자열을 대문자로 바꾼다
+`nchar`|주어진 문자열의 길이를 구한다
+`substr`|문자열의 일부분을 추출한다
+`strsplit`|문자열을 구분자로 나누어 쪼갠다
+`grepl`|문자열에 주어진 문자가 있는지 확인한다
+`gsub`|문자열의 일부분을 다른 문자로 대체한다
+
+```r
+data='This is a pen'
+tolower(data)
+toupper(data)
+nchar(data)
+substr(data, 9, 13)
+strsplit(data, 'is')
+grepl('pen', data)
+gsub('pen', 'banana', data)
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/31369dda-5a0f-45ba-b844-ec845225ebd4)
+
+3. 벡터 연산
+
+함수|내용
+---|---
+`length`|주어진 벡터의 길이를 구한다
+`paste`|주어진 벡터를 구분자를 기준으로 결합한다.
+`cov`|두 수치 벡터의 공분산을 구한다
+`cor`|두 수치 벡터의 상관계수를 구한다
+`table`|데이터의 개수를 구한다
+`order`|벡터의 순서를 구한다
+
+4. 행렬 연산
+
+함수|내용
+---|---
+`t`|전치행렬을 구한다
+`diag`|대각행렬을 구한다
+`%*%`|두 행렬을 곱한다
+
+5. 데이터 탐색
+
+함수|내용
+---|---
+`head`|데이터의 앞 일부분을 보여준다
+`tail`|데이터의 뒤 일부분을 보여준다
+`quantile`|수치 벡터의 4분위수를 보여준다
+
+```r
+x=c(1:12)
+head(x, 5)
+tail(x, 5)
+quantile(x)
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/1b0d916d-4310-4fb0-a53a-c745bde2e7be)
+
+6. 데이터 전처리
+
+함수|내용
+---|---
+`subset`|데이터에서 조건식에 맞는 데이터 추출함
+`merge`|두 데이터를 특정 공통된 열을 기준으로 병합
+`apply`|데이터에 열(또는 행)별로 주어진 함수를 적용
+
+```r
+df1=data.frame(x=c(1, 1, 1, 2, 2), y=c(2, 3, 4, 3, 3))
+df2=data.frame(x=c(1, 2, 3, 4), y=c(5, 6, 7, 8))
+subset(df1, x==1)
+merge(df1, df2, by=c('x'))
+
+#1은 각 행에 함수를 적용, 2는 각 열에 함수를 적용
+apply(df1, 1, sum)
+apply(df1, 2, sum)
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/5a0a7772-6e27-4304-8d25-b0e5fea7ccfe)
