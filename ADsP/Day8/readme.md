@@ -253,5 +253,5 @@ copy_iris=knnImputation(copy_iris, k=10)
    * 가장 작은 하한 사분위수: Q1, 가장 큰 사분위수인 상한 사분위수: Q3
    * IQR(사분범위; InterQuartile Range): 사분위의 정상 범위인 Q1과 Q3 사이를 의미
    * 일반적으로 사분범위에서 1.5분위수를 벗어나는 경우 이상치로 판단
-      * $Q1-1.5\mul IQR$보다 작거나 $Q3-+1.5\mul IQR$보다 큰 경우 이상값으로 간주
+      * $Q1-1.5*IQR$보다 작거나 $Q3+1.5*IQR$보다 큰 경우 이상값으로 간주
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/a67d682f-3c62-4ac2-89f2-090ccea7b5bd)
