@@ -130,4 +130,4 @@ $$Var(x)=p(1-p)$$
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/dc44cfce-643f-4996-be64-0a758cfcc035)
 
 * 표준정규분포: 평균이 0, 표준편차가 1인 정규분포, 아래 식을 따라 정규분포를 따르는 확률변수 X를 표준정규분포를 따르는 확률변수 Z로 변환할 수 있음(표준화)
-$$Z=\frac{X-\mu}{\sigma}$~$N(0, 1^2)$$
+$$Z=\frac{X-\mu}{\sigma}\simN(0, 1^2)$$
