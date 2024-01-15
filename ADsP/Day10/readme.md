@@ -111,7 +111,7 @@ t.test(before, after, alternative='greater', paired=TRUE)
      * Dunnett
      * Bonferroni 등
   * 분산분석의 독립변수: 범주형 데이터, 종속변수: 연속형
-  * 분산 분석에는 F-value 사용($F\_value=(집단 간 분산)\div(집단 내 분산)$)
+  * 분산 분석에는 F-value 사용($Fvalue=\frac{(집단 간 분산)}{(집단 내 분산)}$)
   * 평균을 비교하는 분산분석에 '분산'을 사용하는 이유: 집단 간 평균의 분산이 클수록 각 집단의 평균은 서로 멀리 떨어져 있기 때문
 
 2. 일원분산분석
