@@ -216,3 +216,31 @@ summary(result)
 1. 피어슨 상관분석(선형적 상관관계)
   * 피어슨 상관관계는 모수적 방법의 하나로 두 변수가 모두 정규분포를 따른다는 가정이 필요
 $$\gamma_{xy}=\frac{\sum_i^n(X_i-\bar{X})(Y_i-\bar{Y})}{\sqrt{\sum_i^n(X_i-\bar{X})^2}\sqrt{\sum_i^n(Y_i-\bar{Y})^2}}$$
+```r
+X=c(1, 2, 3, 4, 5)
+Y=c(3, 6, 4, 9, 8)
+cor(X, Y, method='pearson')
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/e1185ba8-0565-4e48-89e7-c0705d38428f)
+
+2. 스피어만 상관분석(비선형적 상관관계)
+  * 측정된 두 변수들이 서열척도일 때 사용하는 상관 계수
+  * 비모수적 방법, 관측값의 순위에 대하여 상관계수를 구하는 방법
+```r
+X=c(1, 2, 3, 4, 5)
+Y=c(3, 6, 4, 9, 8)
+cor(X, Y, method='spearman')
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/fd87ad9d-c0e9-4354-9ff8-9ac22904ba63)
+
+3. 상관분석 실습
+  * 10명의 학생들에 대한 학습 시간과 시험 점수에 대한 데이터가 주어졌다. 학습 시간과 시험 점수 사이에 상관관계가 존재하는지 알아보자
+```r
+time=c(8, 6, 7, 3, 2, 4, 2, 7, 2, 3)
+score=c(33, 22, 18, 6, 23, 10, 9, 30, 11, 13)
+cor.test(time, score)
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/193f0da5-e0f4-49b6-8e86-559ad50c9235)
+  * p-value=0.01527<0.05: 귀무가설 기각
+  * 두 변수의 상관계수 추정치(cor)=0.7358112
+  * 두 변수간(time, score) 상관관계가 있다고 통계적으로 말할 수 있음음
