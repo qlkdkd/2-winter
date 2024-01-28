@@ -34,7 +34,7 @@ $$\frac{P}{1-P}=e^{\alpha+\beta_1X_1+\beta_2X_2+...+\beta_kX_k}$$
 * 로짓: 오즈에 로그값을 취한 것으로 오즈의 한계를 극복한 것
 $$log(Odds)=log(\frac{P}{1-P})$$
 * 오즈의 범위가 무한대로 확장, 로짓값의 그래프는 성공확률 0.5를 기준으로 대칭 형태를 띠게 됨
-$$-\infty\<log(Odds)\<\infty$$
+$$-\infty < log(Odds) < \infty$$
 * 로짓 변환을 이용한 로지스틱 회귀분석
 $$log(Odds)=\log(\frac{P}{1-P})=beta_1X_1+\beta_2X_2+...+\beta_kX_k$$
 
