@@ -34,7 +34,7 @@ $$\frac{P}{1-P}=e^{\alpha+\beta_1X_1+\beta_2X_2+...+\beta_kX_k}$$
 * 로짓: 오즈에 로그값을 취한 것으로 오즈의 한계를 극복한 것
 $$log(Odds)=log(\frac{P}{1-P})$$
 * 오즈의 범위가 무한대로 확장, 로짓값의 그래프는 성공확률 0.5를 기준으로 대칭 형태를 띠게 됨
-$$-\infty<log(Odds)<\infty$$
+$$-\infty\<log(Odds)\<\infty$$
 * 로짓 변환을 이용한 로지스틱 회귀분석
 $$log(Odds)=\log(\frac{P}{1-P})=beta_1X_1+\beta_2X_2+...+\beta_kX_k$$
 
@@ -42,4 +42,5 @@ $$log(Odds)=\log(\frac{P}{1-P})=beta_1X_1+\beta_2X_2+...+\beta_kX_k$$
 * 로지스틱 회귀분석과 인공신경망 분석에서 활성화함수로 활용되는 대표적인 함수 중 하나
 * 시그모이드 함수는 로짓 함수와 역함수관계-> 로짓함수를 통해 시그모이드 함수 도출됨
 $$p=\frac{1}{1+e^{-(\beta_0+\beta_1+X)}}$$
-![Uploading image.png…]()
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/dc463b6a-f7d5-4eaa-9bfa-c457db8b35f6)
+
