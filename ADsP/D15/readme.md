@@ -173,4 +173,31 @@ result
 * 앙상블 분석에서 각각의 모델을 분류기(classifier)라고 부르며, 흔히 의사결정나무 사용
   * 여러 개의 분류기에 의한 결과를 놓고 다수결에 의하여 최종 결괏값을 선정하는 작업을 보팅(voting)이라 함
 * 분석을 위한 데이터 모집단의 분포를 현실적으로 알 수 없음
-  * 그러나 하나의 붓스트랩을 구성할 때 원본 데이터로부터 복원추출을 진행하기 때문에 붓스트랩은 알 수 없던 모집단의 특성을 더 잘 반영할 수 있
+  * 그러나 하나의 붓스트랩을 구성할 때 원본 데이터로부터 복원추출을 진행하기 때문에 붓스트랩은 알 수 없던 모집단의 특성을 더 잘 반영할 수 있음
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/0dca9b93-2c48-451c-8974-49f0aef33f56)
+```r
+library(adabag)
+#데이터 분할 70:30
+index=sample(c(1, 2), nrow(iris), replace=T, prob=c(0.7, 0.3))
+train=iris[index=1, ]
+test=iris[index=2, ]
+
+#의사결정나무 개수를 정하는 매개변수 mfinal=100이 기본값이다.
+result=bagging(data=train, Species~. )
+#첫번째 의사결정나무
+plot(result$trees[[1]], margin=0.3)
+text(result$trees[[1]])
+
+#백 번째 의사결정나무
+plot(result$trees[[100]], margin=0.3)
+text(result$trees[[100]])
+
+#train데이터로 구축된 모형을 text데이터로 검정
+pred=predict(result, newdata=test)
+#test데이터의 실제값과 예측값으로 표를 작성
+table(condition=test$Species, pred$class)
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/c112dbfd-c5e7-4dd0-9981-5fc2acd0ee56)
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/24f4962d-b009-4475-8d2c-d1ac5f2d9044)
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/aff97c68-6068-4a17-b0ee-ff0ecb9d2cbb)
+
