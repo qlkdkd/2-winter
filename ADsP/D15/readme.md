@@ -201,3 +201,54 @@ table(condition=test$Species, pred$class)
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/24f4962d-b009-4475-8d2c-d1ac5f2d9044)
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/aff97c68-6068-4a17-b0ee-ff0ecb9d2cbb)
 
+#### 2. 부스팅
+* 부스팅은 여러 개의 모형을 구축한다는 점에서 배깅과 유사하지만, 배깅은 각 분류기(모델)이 독립적인데 반해, 부스팅은 독립적이지 않음
+* 부스팅은 이전 모델을 구축한 뒤 다음 모델을 구축할 때 이전 분류기에 의해 잘못 분류된 데이터에 더 큰 가중치를 주어 붓스트랩을 구성함
+  * 약한 모델들을 결합하여 나감으로써 점차적으로 강한 분류기를 만들어 나가는 과정
+* 에이다부스팅(Ada Boosting), Gradient Boost, XGBoost, Light GBM
+* 붓스트랩은 재구성하는 과정에서 잘못 분류된 데이터에 더 큰 가중치를 주어 표본을 추출-> 훈련오차 빠르게 줄일 수 있음, 예측 성능 또한 배깅보다 성능이 뛰어남
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/0f2ebda4-c997-4bb8-b2d4-a138dbc838fc)
+```r
+library(adabag)
+index=sample(c(1, 2), nrow=(iris), replace=T, prob=c(0.7, 0.3))
+train=iris[index==1, ]
+test=iris[index==2, ]
+
+#boos=T 값을 주어야 가중치 값을 조정한다.
+result=boosting(data=train, Species~., boos=T, mfinal=10)
+
+#첫 번째 의사결정나무
+plot(result$trees[[1]], margin=0.3)
+text(result$trees[[1]])
+
+#가중치가 조정되면서 생성된 10번째 의사결정 나무
+plot(result$trees[[10]], margin=0.3)
+text(result$trees[[10]])
+
+#train데이터로 구축된 모형을 test 데이터로 검증
+pred=predict(result, newdata=test)
+#test데이터의 실제 값(condition)과 예측값(predict)의 표를 확인
+pred$confusion
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/0c2ffa6f-a35b-4d55-bf7c-f890ba327e4f)
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/ebe52edd-e14f-4fc5-ba99-dd6dba76f866)
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/cf4718d7-34be-4d8d-b3a1-2301cd638ef1)
+
+#### 3. 랜덤 포레스트
+* 서로 상관성이 없는 나무들로 이루어진 숲을 의미. 방법은 배깅과 유사, 배깅에 더 많은 무작위성을 주는 분석 기법
+* 많은 무작위성으로 생성된 서로 다른 여러 개의 트리로 구성-> 여러 개의 약한 트리들의 선형 결합으로 최종 결과를 얻는 모델
+* 분류: 다수결로 최종결과를 구함, 회귀의 경우: 평균 또는 중앙값을 구함
+* 각 마디에서 최적의 분할이 아닌 표본추출 과정이 한법 더 반복되어 추출된 표본을 대상으로 최적의 분할을 실시
+* 랜덤포레스트는 큰 분산을 갖고 있다는 의사결정나무의 단점을 보완-> 분산 감소, 모든 분류기들이 높은 비상관성 갖음-> 일반화 성능 향상, 이상값에 민감하지 않음
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/4827c9b9-cf33-4ab9-b773-1ee4f959f2f4)
+```r
+library(randomForest)
+library(adabag)
+index=sample(c(1, 2), nrow=(iris), replace=T, prob=c(0.7, 0.3))
+train=iris[index==1, ]
+test=iris[index==2, ]
+result=randomForest(Species~., data=train, ntree=100)
+pred=predict(result, newdata=test)
+table(condition=test$Species, pred)
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/9b2f4fb5-d33b-48a3-967d-089b591b3e45)
