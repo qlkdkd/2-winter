@@ -198,3 +198,11 @@ ROC(form=Species~pred, data=test, plot='ROC')
 ```
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/d8b228b6-4f27-4058-a1cb-0e4d1b3eb363)
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/2e48e205-8a3d-448d-a2e1-84a748161a71)
+
+### (4) 이익도표
+* 모델의 성능을 판단하기 위해 작성한 표
+* 목표범주(위 예제에서 setosa, 1번그룹)에 속할 확률을 내림차순으로 정렬하여 몇 개의 구간으로 나누어 각 구간에서의 성능을 판단하고 랜덤 모델보다 얼마나 더 뛰어난 성능을 보이는지 판단함
+* 일반적으로 0.5에서 cut-off하며 1.0이 가장 높은 기준이 됨
+
+* 200개의 자료 중 40개가 그룹1에 속해있는 평가용 데이터셋이 있을 때, 구축된 모형으로 200개 각각의 자료에 대해 그룹 1에 속할 확률을 구하고 내림차순으로 정렬한 후 구간을 나눔. 그리고 이익도표를 그림
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/451e87a9-cece-40ba-a21d-ce70ce430fd4)
