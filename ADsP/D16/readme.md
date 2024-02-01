@@ -1,4 +1,4 @@
-## 4. 인공신경망 분석
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/41d38199-5ce0-4f44-9a4e-9af46b798184)## 4. 인공신경망 분석
 ### (1) 인공신경망 개요
 * 인간의 뇌를 모방하여 만들어진 학습 및 추론 모형
 * 뇌의 구조를 수학적으로 단순화해 모델링한 것
@@ -100,4 +100,101 @@ $$P(v_1, v_2, v_3|E)=P(a)\times P(v_1|a)\times P(v_2|a)\times P(v_3|a)$$
 
 * k-NN은 정답 라벨이 있는 데이터들 속에서 정답 라벨이 없는 데이터들을 어떻게 분류할 것인지 대한 해결방법으로 사용
 
-### (2) k-NN 알고리즘 원
+### (2) k-NN 알고리즘 원리
+* k-NN은 정답 라벨이 없는 새로운 데이터를 입력받았을 때 그 데이터로부터 가장 가까이에 있는 데이터의 정답 라벨을 확인하여 새로운 정답 라벨을 결정함
+* 아래 네모칸 물음표 데이터 주변에 가장 가까이에 있는 데이터를 보면 가장 가까운 데이터의 정답 라벨은 파란색 동그라미
+  * k=주변 데이터의 수. k=4일때 검정색 세모 더 많이 보임
+  * 그럼 이 데이터는 파란 동그라미인가? 아님 검정색 세모인가?
+  * -> 결국 k값을 어떻게 정하는 게 좋을 것인가 하는 문제 생김
+* -> 결국 k-NN은 k값을 어떻게 정하는지가 관건임. **일반적으로는 최적의 k값을 찾기 위해 총 데이터들의 제곱근 값을 사용함**
+* **k-NN은 함수가 오직 지역적으로 근사하고 모든 계산이 분류될 때까지 연기되는 인스턴스 기반 학습이다.**
+* k-NN은 게으른 학습이라고도 불리며 가장 간단한 기계학습 알고리즘이다
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/4146dd37-e1eb-419e-a868-b1da0128616c)
+
+---
+
+## 7. 서포트 벡터 머신
+### (1) 서포트 벡터 머신의 개요
+* 서포트 벡터 머신(SVM; Support Vector Machine)은 지도학습에 주로 이용, 분류 성능이 뛰어나 분류 분석에 자주 사용됨
+* 초평명(hyper-plane)을 이용하여 카테고리를 나누어 비확률적인 이진 선형모델을 만듬
+
+### (2) 서포트벡터머신 알고리즘
+* 서포트 벡터 머신은 분류할 때 가장 높은 마진을 가져가는 방향으로 분류함
+  * 마진이 크면 클수록 학습에 사용하지 않는 새로운 데이터가 들어오더라도 분류를 잘 할 가능성이 높기 때문-
+  * 그래서 분류 분석에서 예측력이 높음
+* 일반적으로 서포트벡터머신은 분류 또는 회귀분석에 사용 가능한 초평면 또는 초평면들의 집합으로 구성됨
+  * 초평면이 가장 가까운 데이터와 큰 차이를 가진다면 오차가 작아지기 때문에 좋은 분류를 위해서는 어떤 분류된 점에 대해서 가장 가까운 학습 데이터와 가장 먼 거리를 가지는 초평면을 찾아야 함
+* 초평면은 $f(x)=wTx+b=0$으로 나타낼 수 있음
+
+---
+
+## 8. 분류 모형 성과 평가
+### (1) 성과 평가 개요
+* 여러 분류 기법들을 적용해보고 여러 모델 중 가장 예측력이 좋은 모델을 최종 모델로 선정하기 위해서는 평가 기준이 필요
+* 모형 평가의 기준
+  * **일반화**: 다른 데이터에서도 안정적으로 적용이 가능한지 판단
+  * **효율성**: 모형의 계산 양에 비한 모형 성능을 고려
+  * 구축된 모형의 분류 정확성
+* 컨퓨전 매트릭스(Confusion Matrix; 혼동행렬)라고도 불리는 오분류표, ROC커브, 이익도표, 향상도곡선
+
+### (2) 오분류표와 평가 지표
+* 분류 분석 성과 평가" 분류 분석 모형이 내놓은 답과 실제 정답이 어느 정도 일치하는지를 판단하는 것
+  * 일반적으로 정답과 예측값은 **이진 분류 클래스 레이블**을 가짐
+* 오분류표: 분류 분석 후 예측한 값과 실제 값을 차이를 교차표(Cross Table)형태로 정리한 것
+* 오분류표는 분류오차의 정확한 추정치를 얻기 위하여 평가용 데이터로부터 계산되어 얻은 표임
+  * 훈련용 데이터를 활용한 오분류표는 과적합의 위험성이 존재함
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/f82923bb-1d09-49ec-aa98-ce4c5c5ffdbf)
+* **정분류율=정확도(Accuracy)**: 전체 관측치 중 올바르게 예측한 비율
+$$\frac{TP+TN}{TP+FN+FP+TN}$$
+* **오분류율(Error Rate)**: 전체 관측치 중 잘못 예측한 비율
+$$frac{FN+FP}{TP+FN+FP+TN}$$
+* **민감도=재현율(Sensitivity)**: 실제 참값 중 올바르게 참값을 찾아낸 비율. 민감도와 동일한 지표로 모형의 완전성을 평가하는 지표
+$$\frac{TP}{TP+FN}$$
+* **특이도(Specificity)**: 실제 거짓값 중 올바르게 거짓값을 찾아낸 비율
+$$\frac{TN}{FP+TN}$$
+* **정밀도(Precision)**: 예측 참값중 올바르게 참값을 찾아낸 비율
+$$\frac{TP}{TP+FP}$$
+* **F1 Score**: 정밀도와 재현율의 조화평균 값으로 정밀도의 재현율은 높은 확률로 음의 상관관계를 가질 수 있는 효과를 보정하기 위한 지표, 값이 높을수록 좋음
+$$F1Score=\frac{2\times Precition \times Recall}{Precision+Recall}$$
+* **거짓 긍정률(FPR: False Positive Rate)**: 실제 부정인 값 중 긍정으로 잘못 분류한 비율
+$$1-\frac{TN}{FP+TN}=\frac{FP}{FP+TN}$$
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/56e1d73e-6d79-4c14-9e81-5c421e34340c)
+
+### (3) ROC 커브
+* 분류분석 모형의 평가를 쉽게 비교할 수 있도록 시각화한 그래프
+* x축은 FPR(1-특이도)값을, y축은 TPR(민감도)값을 갖는 그래프이다. **이진 분류 모형의 성능을 평가하기 위해 사용됨**
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/6086e316-7b38-4d6f-80ef-662b025306e0)
+```r
+#이진분류를 목적으로 setosa와 versicolor만 추출
+iris_bin1=subset(iris, Species=='setosa'|Species=='versicolor')
+
+#setosa를 1로, setosa가 아닌 경우(versicolor)를 0으로 변경
+iris_bin1$Species=ifelse(iris_bin1$Species=='setosa', 1, 0)
+
+#로지스틱 회귀분석 예시에서 보았듯 Petal.Length와 Petal.Width에 의하여
+#setosa와 versicolor가 정확히 분류되므로 Sepal.Length와 Sepal.Width를 변수로 사용
+iris_bin1=iris_bin1[, c(1, 2, 5)]
+
+#데이터 분할
+index=sample(2, nrow(iris_bin1), replace=T, prob=c(0.7, 0.3))
+train=iris_bin1[index==1, ]
+test=iris_bin1[index==2, ]
+
+#의사결정나무를 활용하여 ROC커브 작성
+#ROC커브를 그리기 위해서는 하나의 집단에 속할 확률 값들이 필요하다
+#이번 경우에는 setosa(1번)그룹에 속할 확률 값들을 계산
+library(rpart)
+result=rpart(Species~., data=train)
+pred=predict(result, newdata=test)
+head(pred)
+
+#test데이터에 1번 집단에 속할 확률을 추가
+test$pred=pred
+head(test, 3)
+
+#ROC커브를 그리기 위한 Epi 패키지 호출
+library(Epi)
+ROC(form=Species~pred, data=test, plot='ROC')
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/d8b228b6-4f27-4058-a1cb-0e4d1b3eb363)
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/2e48e205-8a3d-448d-a2e1-84a748161a71)
