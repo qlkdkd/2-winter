@@ -173,3 +173,127 @@ public class c3_6_1 {
 ### 문자열 포매팅
 * 숫자 바로 대입하기: String.format메서드 사용
 * 문자열에 바로 대입하기
+* 숫자값을 나타내는 변수 대입하기
+```java
+public class c3_9 {
+    public static void main(String[]args){
+        //문자열 포매팅
+        System.out.println(String.format("I eat %d apples.", 3));
+
+        //문자열 바로 대입
+        System.out.println(String.format("I eat %s apples.", "five"));
+
+        //숫자값 대입
+        int number=3;
+        System.out.println(String.format("I eat %d apples", number));
+    }
+}
+```
+* 값을 2개 이상 넣기
+```java
+public class c3_9_1 {
+    public static void main(String[]args){
+        int number=10;
+        String day="three";
+        System.out.println(String.format("I ate %d apples. So I was sick for %s day", number, day));
+    }
+}
+```
+
+* 문자열 포맷 코드 종류
+종류|설명
+---|---
+%s|String, 또는 모든 형태의 값
+%c|char
+%d|int
+%f|float
+%lf|double
+%o|8진수
+%x|16진수
+%%|특수문자
+```java
+public class c3_9_2 {
+    public static void main(String[]args){
+        System.out.println(String.format("I have %s apples", 3));
+        System.out.println(String.format("rate is %s", 3.234));
+    }
+}
+```
+
+---
+
+## 3-5. StringBuffer
+### append
+문자열 추가기능. toString()메서드 사용하여 StringBuffer를 String자료형으로 변경 가
+```java
+package c3_5;
+
+public class c3_5_1_append {
+    public static void main(String[]args){
+        StringBuffer sb=new StringBuffer();
+        sb.append("hello");
+        sb.append(" ");
+        sb.append("jump to java");
+        String result=sb.toString();
+        System.out.println(result);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/611da256-f4f5-4234-bb3f-bbd0073b818b)
+StringBuffer 대신 String 사용
+```java
+package c3_5;
+
+public class c3_5_2_append2 {
+    public static void main(String[]args){
+        String result="";
+        result+="hello";
+        result+=" ";
+        result+="jump to java";
+        System.out.println(result);
+    }
+}
+```
+차이점: 첫번째 예제는 StringBuffer객체를 한번만 생성하지만, 두번째 예제에서는 +연산마다 새로운 객체가 만들어지므로 4개의 객체가 생성됨.
+
+그러나 StringBuffer자료형은 String보다 무거운 편
+
+### Insert
+특정 위치에 원하는 문자열 삽입
+```java
+package c3_5;
+
+public class c3_5_3_Insert {
+    public static void main(String[]args) {
+        StringBuffer sb=new StringBuffer();
+        sb.append("jump to java");
+        sb.insert(0, "hello");
+        System.out.println(sb.toString());
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/48daa8df-ecb0-40dd-b284-149e33855433)
+
+### substring
+String 자료형의 substring 메서드와 동일하게 작용됨
+```java
+package c3_5;
+
+public class c3_5_4_substring {
+    public static void main(String[]args){
+        StringBuffer sb=new StringBuffer();
+        sb.append("Hello jump to java");
+        System.out.println(sb.substring(0, 4));
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/61744bb2-550b-46ca-8e02-263ac0fcd083)
+
+---
+
+## 3-6. 배열
+```
+int[] odds={1, 3, 5, 7, 9};
+String[] weeks={"월", "화", "수", "목", "금", "토", "일"};
+```
+
