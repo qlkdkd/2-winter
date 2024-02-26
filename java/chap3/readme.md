@@ -297,3 +297,188 @@ int[] odds={1, 3, 5, 7, 9};
 String[] weeks={"월", "화", "수", "목", "금", "토", "일"};
 ```
 
+### 배열 길이 설정하기
+```java
+package c3_6;
+
+public class c3_6_1_arraySetting {
+    public static void main(String[]args){
+        String[] weeks=new String[7];
+        weeks[0]="Mon";
+        weeks[1]="Tue";
+        weeks[2]="Wed";
+        weeks[3]="Thi";
+        weeks[4]="Fri";
+        weeks[5]="Sat";
+        weeks[6]="Sun";
+    }
+}
+```
+
+### 배열값에 접근하기
+인덱스 이용
+```java
+package c3_6;
+
+public class c3_6_2_arrayAccess {
+    public static void main(String[]args){
+        String[] weeks={"월", "화", "수", "목", "금", "토", "일"};
+        System.out.println(weeks[3]);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/9ec5cb9c-f9ce-4660-9a52-999d6f51898c)
+
+### 배열의 길이 구하기
+* 길이 구하기: length()메서드 이용
+* 길이 전체 출력: for문 이
+```java
+package c3_6;
+
+public class c3_6_3_arrayLength {
+    public static void main(String[]args){
+        String[] weeks={"월", "화", "수", "목", "금", "토", "일"};
+        for(int i=0; i<weeks.length; i++){
+            System.out.println(weeks[i]);
+        }
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/2fdc22b6-da6b-4702-be0b-3f0f24a2e9ee)
+
+---
+
+## 3-7. 리스트
+배열과 리스트의 차이: 배열은 길이가 정해져 있으나, 리스트는 가변형 자료이다.
+### ArrayList
+* 리스트 자료형: ArrayList, Vector, LinkedList
+#### add:리스트의 요솟값 추가
+#### get: 리스트의 특정 인덱스의 값 추출
+#### size: 리스트의 요소의 개수 리턴
+#### remove: 리스트에서 객체에 해당하는 항목을 삭제한 뒤 그 결과로 불값 리턴
+```java
+package c3_7;
+import java.util.ArrayList;
+public class c3_7_1_add {
+    public static void main(String[]args){
+        ArrayList pitches=new ArrayList();
+        //add: 리스트의 요솟값 추가
+        pitches.add("138");
+        pitches.add("129");
+        pitches.add("142");
+        System.out.println(pitches);
+        //get: 리스트의 특정 요솟값 추출
+        System.out.println(pitches.get(1));
+        //size: 리스트의 요소의 개수 리턴
+        System.out.println(pitches.size());
+        //contains: 리스트 안에 해당 항목이 있는지 판별-> 불값 리턴
+        System.out.println(pitches.contains("142"));
+        //remove: 리스트에서 객체에 해당하는 항목을 삭제한 뒤 그 결과로 불값 리턴
+        System.out.println(pitches.remove("129"));
+        System.out.println(pitches);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/162f8346-13b6-4da5-9c5f-be11c40ee2b7)
+
+### 제네릭스
+자료형을 안전하게 사용할 수 있도록 만들어주는 기능. 자료형을 강제로 바꿀 때 생길 수 있는 캐스팅 오류를 줄일 수 있음
+
+일반적인 방식|선호되는 방식
+---|---
+`ArrayList<String>pitches=new ArrayList<String>();`|`ArrayList<String> pitches=new ArrayList<>();`
+
+제네릭을 사용하지 않은 경우: 리스트 내 값을 가져올 때 매번 Object자료형에서 String 자료형으로 형 변환을 해야 함
+```java
+package c3_7;
+
+import java.util.ArrayList;
+
+public class c3_7_2_nonGenerics {
+    public static void main(String[]args){
+        ArrayList pitches=new ArrayList();
+        pitches.add("138");
+        pitches.add("129");
+
+        String one=(String)pitches.get(0);
+        String two=(String)pitches.get(1);
+    }
+}
+```
+제네릭을 한 번에 사용하면 불필요한 코딩 줄일 수 있음
+```java
+package c3_7;
+import java.util.ArrayList;
+public class c3_7_3_Generics {
+    public static void main(String[]args){
+        ArrayList<String> pitches=new ArrayList();
+        pitches.add("138");
+        pitches.add("129");
+
+        //String one=(String)pitches.get(0);
+        //String two=(String)pitches.get(1);
+    }
+}
+```
+
+### 다양한 방법으로 ArrayList 만들기
+```java
+//배열을 ArrayList로 변환
+package c3_7;
+import java.util.ArrayList;
+import java.util.Arrays;
+public class c3_7_4_ArrayList1 {
+    public static void main(String[]args){
+        String[] data={"138", "129", "142"};
+        ArrayList<String> pitches=new ArrayList<>(Arrays.asList(data));
+        System.out.println(pitches);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/30516a1c-98df-4ccc-ab5a-61e57f640ed7)
+```java
+//String 자료형을 여러개 전달하여 생성
+package c3_7;
+import java.util.*;
+public class c3_7_5_ArrayList2 {
+    public static void main(String[]args){
+        ArrayList<String> pitches=new ArrayList<>(Arrays.asList("138", "129", "142"));
+        System.out.println(pitches);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/f3c89d2c-6611-4b30-8984-5ce0da205d12)
+
+### String.join
+```java
+package c3_7;
+import java.util.*;
+public class c3_7_6_join {
+    public static void main(String[]args){
+        ArrayList<String> pitches=new ArrayList<>(Arrays.asList("138", "129", "142"));
+        String result=String.join(",", pitches);
+        System.out.println(result);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/35016d44-3974-404d-a59f-473ace8b4576)
+`String.join("구분자", 리스트 객체)`를 사용해 리스트의 각 요소에 구분자를 넣어 하나의 문자열로 만들 수 있다.
+* 배열에도 사용 가능
+
+### 리스트 정렬하기
+sort 메서드 이용
+```java
+package c3_7;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+public class c3_7_7_sort {
+    public static void main(String[]args){
+        ArrayList<String> pitches=new ArrayList<>(Arrays.asList("138", "129", "142"));
+        pitches.sort(Comparator.naturalOrder());
+        System.out.println(pitches);
+    }
+}
+```
+* 오름차순 정렬: Comparator.naturalOrder()
+* 내림차순 정렬: Comparator.reverseOrder()
