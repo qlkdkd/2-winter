@@ -482,3 +482,195 @@ public class c3_7_7_sort {
 ```
 * 오름차순 정렬: Comparator.naturalOrder()
 * 내림차순 정렬: Comparator.reverseOrder()
+
+---
+
+## 3-8. 맵
+* 대응관계를 쉽게 표현하게 할 수 있는 자료형
+* key와 value값을 한 쌍으로 갖는 자료형
+key|value
+---|---
+people|사람
+baseball|야구
+
+* 맵은 리스트나 배열처럼 순차적으로 요솟값을 구하지 않고 키(key)를 이용해 값(value)를 얻는다.
+* 맵 자료형: HashMap, LinkedHashMap, TreeMap
+
+### HashMap
+#### put: key와 value 추가
+#### get: key에 해당하는 value를 얻을 때 사용
+#### containsKey/containsValue: 맵에 해당하는 키/값 있는지 여부에 따라 불값 리턴
+#### remove: 맵의 항목을 삭제 후 value 리
+#### size: 맵 요소의 개수를 리턴
+#### KeySet: 맵의 모든 key를 모아 리턴
+```java
+package c3_8_Map;
+
+import java.util.HashMap;
+
+public class c3_8_1_mapMethod {
+    public static void main(String[]args){
+        HashMap<String, String> map=new HashMap<>();
+        //put: key와 value 추가
+        map.put("people", "사람");
+        map.put("baseball", "야구");
+        //get: key에 해당하는 value를 얻을 때 사용
+        System.out.println(map.get("people"));//"사람" 출력
+        //containsKey/containsValue: 맵에 해당하는 키/값 있는지 여부에 따라 불값 리턴
+        System.out.println(map.containsKey("people"));
+        System.out.println(map.containsValue("people"));
+        //remove: 맵의 항목을 삭제 후 value값 리턴
+        System.out.println(map.remove("people"));
+        //size: 맵 요소의 개수를 리턴
+        System.out.println(map.size());
+        //KeySet: 맵의 모든 key를 모아 리턴
+        System.out.println(map.keySet());
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/84d3e657-9ae5-4572-9641-35f3d4d99631)
+* LinkedHashMap: 입력된 순서대로 데이터 저장
+* TreeMap: 입력된 key의 오름차순으로 데이터 저장
+
+---
+
+## 3-9. 집합
+집합(set)자료형은 집합과 관련된 것을 쉽게 처리하기 위해 만든 것
+* HashSet, TreeSet, LinkedHashSet
+```java
+package c3_9_set;
+import java.util.HashSet;
+import java.util.Arrays;
+public class c3_9_1_setExample {
+    public static void main(String[] args) {
+        HashSet<String> set = new HashSet<>(Arrays.asList("H", "e", "l", "l", "o"));
+        System.out.println(set);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/dc5b8f99-f295-4998-a159-c1f8847e939a)
+
+### 집합 자료형의 2가지 특징
+* 중복을 허용하지 않음
+* 순서가 없음: 인덱싱으로 값을 얻을 수 없음
+
+### 교집합, 합집합, 차집합 구하기
+#### 교집합 구하기: retainAll
+#### 합집합 구하기: addAll
+#### 차집합 구하기: removeAll
+```java
+package c3_9_set;
+
+import java.util.HashSet;
+import java.util.Arrays;
+public class c3_9_2_variableSetCalc {
+    public static void main(String[] args){
+        HashSet<Integer> s1= new HashSet<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        HashSet<Integer> s2= new HashSet<>(Arrays.asList(4, 5, 6, 7, 8, 9));
+        //교집합
+        HashSet<Integer> intersection=new HashSet<>(s1);
+        intersection.retainAll(s2);
+        System.out.println(intersection);
+
+        //합집합
+        HashSet<Integer> union=new HashSet<>(s1);
+        union.addAll(s2);
+        System.out.println(union);
+
+        //차집합 구하기
+        HashSet<Integer> substract=new HashSet<>(s1);
+        substract.removeAll(s2);
+        System.out.println(substract);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/597667bb-7eeb-44d8-abde-eb5350dc1c25)
+
+### add, addAll, remove
+#### add: 집합 자료형에 값 추가
+```java
+package c3_9_set;
+import java.util.HashSet;
+public class c3_9_3_set_add {
+    public static void main(String[]args){
+        HashSet<String> set=new HashSet<>();
+        set.add("Jump");
+        set.add("to");
+        set.add("Java");
+        System.out.println(set);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/c493cf58-f004-4c03-96b2-fd07a7d1ef01)
+#### addAll: 값을 한꺼번에 추가
+```java
+package c3_9_set;
+import java.util.HashSet;
+import java.util.Arrays;
+public class c3_9_4_addAll {
+    public static void main(String[]args){
+        HashSet<String> set=new HashSet<>();
+        set.add("Jump");
+        set.addAll(Arrays.asList("To", "Java"));
+        System.out.println(set);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/2d8955c2-29b9-48df-a2c1-c83c0332f65e)
+#### remove: 특정 값을 제거
+```java
+package c3_9_set;
+import java.util.*;
+public class c3_9_5_remove {
+    public static void main(String[]args){
+        HashSet<String> set=new HashSet<>(Arrays.asList("Jump", "To", "Java"));
+        set.remove("To");
+        System.out.println(set);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/1b71eb0d-8636-4a8b-b1d0-a1b8e9e929e4)
+
+---
+
+## 3-10. 상수 집합
+enum자료형: 서로 연관있는 여러 개의 상수 집합을 정의할 때 사용함
+```
+enum CoffeeType{
+    Americano;
+    Ice_Americano;
+    Cafe_Latte;
+```
+```java
+package c3_10_enum;
+
+public class c3_10_1_enumType {
+    enum coffeeType{
+        Americano, Ice_Americano, Cafe_Latte
+    }
+    public static void main(String[]args){
+        System.out.println(coffeeType.Americano);
+        System.out.println(coffeeType.Ice_Americano);
+        System.out.println(coffeeType.Cafe_Latte);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/7961a080-53de-4642-af1f-888efc1aebc8)
+
+반복문에서의 사용
+```java
+package c3_10_enum;
+
+public class c3_10_2_enum_if_elseType {
+    enum coffeeType{
+        Americano, Ice_Americano, Cafe_Latte
+    }
+    
+    public static void main(String[] args){
+        for(coffeeType type: coffeeType.values()){
+            System.out.println(type);//순서대로 출력
+        }
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/02bc608d-515f-4aeb-b896-3d9150e59878)
