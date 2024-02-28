@@ -674,3 +674,99 @@ public class c3_10_2_enum_if_elseType {
 }
 ```
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/02bc608d-515f-4aeb-b896-3d9150e59878)
+
+---
+
+## 3-11. 형 변환과 final
+### 형 변환
+문자열 정수로 바꾸기: Integer클래스 사용
+```java
+package c3_11_final;
+
+public class c3_11_1_StringToInteger {
+    public static void main(String[]args){
+        String num="123";
+        int n=Integer.parseInt(num);
+        System.out.println(n);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/ca1decf1-2cf0-4ae4-908e-b75f46053111)
+
+정수 문자열로 바꾸기: 정수 앞에 빈 문자열("") 더하기, String.ValueOf()사용, Integer.toString()사용
+```java
+package c3_11_final;
+
+public class c3_11_2_IntegerToString {
+    public static void main(String[]args){
+        int n=123;
+        String num=""+n;
+        String n2=String.valueOf(n);
+        String n3=Integer.toString(n);
+        System.out.println(String.format("%s, %s, %s", num, n2, n3));
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/8d6cbf20-f067-458a-bd6d-0855dbe2ca81)
+
+소수점 포함 문자열 실수로 변경: Double.parseDouble이나 Float.parseFloat사용
+```java
+package c3_11_final;
+
+public class c3_11_3_StringToDouble {
+    public static void main(String[]args){
+        String num="123.456";
+        double d=Double.parseDouble(num);
+        System.out.println(d);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/eaa4fec6-d485-4452-a826-05bf5a06027e)
+
+정수와 실수끼리 서로 변환 가능함
+```java
+ackage c3_11_final;
+
+public class c3_11_4_DoubleToInteger {
+    public static void main(String[]args){
+        int n1=123;
+        double d1=n1;//정수를 실수로 바꿀 때에는 캐스팅이 필요 없음
+        System.out.println(d1);
+
+        double d2=123.456;
+        int n2=(int)d2;//실수를 정수로 바꿀 때에는 반드시 정수형으로 캐스팅해주어야 함
+        System.out.println(n2);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/874826df-2a8a-4613-b880-c21aa433968e)
+* 캐스팅: 자료형 강제 변환
+
+실수형태의 문자열을 정수로 바꿀 때에는 NumberFormatException 발생함-> Double.parseDouble() 사용 후 정수로 변
+```java
+package c3_11_final;
+
+public class c3_11_5_DStringToInteger {
+    public static void main(String[]args){
+        String num="123.456";
+        //int n=Integer.parseInt(num);NumberFormatException 발생
+        double n=Double.parseDouble(num);
+        int n2=(int)n;
+        System.out.println(n2);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/5e54661d-ba17-4e14-a833-a5f2d3f1f71f)
+
+### final
+final은 자료형에 값을 단 한번만 설정할 수 있게 강제하는 키워드이다.
+```java
+package c3_11_final;
+
+public class c3_11_6_finalExample {
+    public static void main(String[]args){
+        final int n=123;
+        n=456;//컴파일 오류 발생
+    }
+}
+```
