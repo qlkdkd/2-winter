@@ -118,3 +118,17 @@ public class c4_1_5_elseif {
 }
 ```
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/8b9f42c1-11ca-4293-bb92-5890752d96c6)
+
+---
+
+## 4-2. switch/case문
+```
+switch(입력 변수){
+  case 입력값1:..
+    break;
+  case 입력값2:
+    break;
+  ...
+  default:...
+    break;
+```
