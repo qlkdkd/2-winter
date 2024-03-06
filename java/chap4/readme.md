@@ -70,3 +70,51 @@ public class c4_1_3_andOrNot {
 }
 ```
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/1c373c30-de4a-426d-bdeb-683b7271f562)
+
+### contains
+```java
+package c4_1_if_else;
+import java.util.*;
+public class c4_1_4_contains {
+    public static void main(String[]args){
+        ArrayList<String> pocket=new ArrayList<String>();
+        pocket.add("paper");
+        pocket.add("cellphone");
+        pocket.add("money");
+
+        if (pocket.contains("money")){
+            System.out.println("택시를 타고 가라");
+        }
+        else{
+            System.out.println("걸어가라");
+        }
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/d59d614e-8920-4c23-ba32-d0ec1c693030)
+pocket 리스트에 안에 money란 요소가 있으므로 pocket.contains("moneㅛ")가 참이 되어 '택시를 타고 가라'가 출력됨
+
+### else if
+```java
+package c4_1_if_else;
+import java.util.*;
+public class c4_1_5_elseif {
+    public static void main(String[]args){
+        boolean hasCard=true;
+        ArrayList<String> pocket=new ArrayList<String>();
+        pocket.add("paper");
+        pocket.add("cellphone");
+
+        if(pocket.contains("money")){
+            System.out.println("택시를 타고가라");
+        }
+        else if(hasCard){
+            System.out.println("택시를 타고가라");
+        }
+        else{
+            System.out.println("걸어가라");
+        }
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/8b9f42c1-11ca-4293-bb92-5890752d96c6)
