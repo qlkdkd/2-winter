@@ -44,3 +44,29 @@ public class c4_1_2_if_else_comparator {
 }
 ```
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/40a7f71f-f699-4a2e-bf2e-2ebba70e1771)
+
+### 논리 연산자
+연산자|설명
+---|---
+x&&y|x와 y가 모두 참
+x\|\|y|x와 y 둘 중 적어도 하나가 참이면 참
+!x|x가 거짓이면 참
+
+```java
+package c4_1_if_else;
+
+public class c4_1_3_andOrNot {
+    public static void main(String[]args){
+        int money=2000;
+        boolean hasCard=true;
+
+        if(money>3000||hasCard){
+            System.out.println("택시를 타고 가라");
+        }
+        else{
+            System.out.println("걸어가라");
+        }
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/1c373c30-de4a-426d-bdeb-683b7271f562)
