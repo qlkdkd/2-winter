@@ -208,3 +208,43 @@ public class c4_3_2_infinityLoop {
 조건문 자체가 true이므로 조건문은 항상 참이 됨. while문은 조건문이 참인 동안에 whiel문에 속해 있는 문장들을 계속해서 수행하므로 while문 내의 문장들을 수행한다.
 
 ### while문 빠져나가기-break
+```java
+package c4_3_while;
+
+public class c4_3_3_break {
+    public static void main(String[]args){
+        int coffee=10;
+        int money=300;
+
+        while (money>0){
+            System.out.println("돈을 받았으니 커피를 줍니다.");
+            coffee--;
+            System.out.println(String.format("남은 양의 커피의 양은 %d입니다.", coffee));
+            if (coffee==0){
+                System.out.println("커피다 다 떨어졌습니다. 판매를 중지합니다.");
+                break;
+            }
+        }
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/7a21b9ee-246b-4a6a-a253-3239783acbfa)
+
+### while문으로 돌아가기-continue
+```java
+package c4_3_while;
+
+public class c4_3_4_continue {
+    public static void main(String[]args){
+        int a=0;
+        while(a<10){
+            a++;
+            if(a%2==0){
+                continue;
+            }
+            System.out.println(a);
+        }
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/9cd5158a-c7d4-46bb-bca9-2b6aa3092280)
