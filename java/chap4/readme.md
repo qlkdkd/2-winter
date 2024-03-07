@@ -132,3 +132,79 @@ switch(입력 변수){
   default:...
     break;
 ```
+
+```java
+package c4_2_switch_case;
+import java.util.*;
+public class c4_2_1_switch_case_example {
+    public static void main(String[]args){
+        int month;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("월 입력: ");
+        month=sc.nextInt();
+        String monthString="";
+        switch(month){
+            case 1: monthString="January";break;
+            case 2: monthString="February";break;
+            case 3: monthString="march";break;
+            case 4: monthString="April";break;
+            case 5: monthString="May";break;
+            case 6: monthString="June";break;
+            case 7: monthString="July";break;
+            case 8: monthString="August";break;
+            case 9: monthString="September";break;
+            case 10: monthString="Octover";break;
+            case 11: monthString="November";break;
+            case 12: monthString="December";break;
+            default: monthString="Invalid month";break;
+        }
+        System.out.println(monthString);
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/21c8e083-5178-42e8-846a-7191876db5a3)
+
+---
+
+## 4-3. while문
+```
+while(조건문){
+  수행할 문장1;
+  수행할 문장2;
+  수행할 문장3;
+  ...
+}
+```
+```java
+package c4_3_while;
+
+public class c4_3_1_while_example {
+    public static void main(String[]args){
+        int treeHit=0;
+        while (treeHit<10){
+            treeHit++;
+            System.out.println(String.format("나무를 %d번 찍었습니다.", treeHit));
+            if(treeHit==10){
+                System.out.println("나무 넘어갑니다.");
+            }
+        }
+    }
+}
+```
+
+### 무한루프
+```java
+package c4_3_while;
+
+public class c4_3_2_infinityLoop {
+    public static void main(String[]args){
+        while(true){
+            System.out.println("Ctrl+c를 눌러야 while문을 빠져나갈 수 있습니다.");
+        }
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/f2417af9-8b23-4d77-945a-ef70861a4940)
+조건문 자체가 true이므로 조건문은 항상 참이 됨. while문은 조건문이 참인 동안에 whiel문에 속해 있는 문장들을 계속해서 수행하므로 while문 내의 문장들을 수행한다.
+
+### while문 빠져나가기-break
