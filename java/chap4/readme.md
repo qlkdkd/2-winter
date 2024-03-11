@@ -248,3 +248,36 @@ public class c4_3_4_continue {
 }
 ```
 ![image](https://github.com/qlkdkd/2-winter/assets/71871927/9cd5158a-c7d4-46bb-bca9-2b6aa3092280)
+
+---
+
+## 4-4. for 문
+```java
+package c4_4_forLoop;
+
+public class c4_4_1_forLoopExample {
+    public static void main(String[]args){
+        String[] numbers={"one", "two", "three"};
+        for(int i=0; i<numbers.length; i++){
+            System.out.println(numbers[i]);
+        }
+    }
+}
+```
+![image](https://github.com/qlkdkd/2-winter/assets/71871927/ea8b2852-a077-4d55-99dd-0828572280cf)
+
+---
+
+## 4-5. for each
+```java
+package c4_5_for_each;
+
+public class c4_5_1_forEachExample {
+    public static void main(String[]args){
+        String[] numbers={"one", "two", "three"};
+        for(String number: numbers){
+            System.out.println(number);
+        }
+    }
+}
+```
