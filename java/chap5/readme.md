@@ -1076,3 +1076,77 @@ public class Main{
 
 ## 5-9. 추상 클래스
 * 추상 클래스: 인터페이스의 역할도 하면서 클래스의 기능도 가지고 있는 자바의 '돌연변이'같은 클래스
+```java
+abstract class Predator extends Animal{
+    abstract String getFood();
+
+    void printFood(){
+        System.out.printf("my food is %s\n", getFood());
+    }
+
+    static int LEG_COUNT = 4;
+    static int speed(){
+        return LEG_COUNT * 30;
+    }
+}
+
+interface Barkable{
+    void bark();
+}
+
+//interface BarkablePredator extends Predator, Barkable{
+
+//}
+
+class Animal{
+    String name;
+
+    void setName(String name){
+        this.name = name;
+    }
+}
+
+class Tiger extends Predator implements Barkable {
+    public String getFood() {
+        return "apple";
+    }
+    public void bark(){
+        System.out.println("어흥");
+    }
+}
+
+class Lion extends Predator implements Barkable{
+    public String getFood(){
+        return "banana";
+    }
+    public void bark(){
+        System.out.println("으르렁");
+    }
+}
+
+class ZooKeeper{
+    void feed(Predator predator){
+        System.out.println("feed "+predator.getFood());
+    }
+}
+
+class Bouncer{
+    void barkAnimal(Barkable animal){
+        animal.bark();
+    }
+}
+
+public class Main{
+    public static void main(String[]args){
+        Tiger tiger = new Tiger();
+        Lion lion = new Lion();
+
+        Bouncer bouncer = new Bouncer();
+        bouncer.barkAnimal(tiger);
+        bouncer.barkAnimal(lion);
+    }
+}
+```
+* 인터페이스의 디폴트 메서드는 더 이상 사용할 수 없으므로 default키워드를 삭제하여 일반 메서드로 변경
+* LEG_COUNT상수도 인터페이스에서는 자동으로 static으로 인식하지만 추상 클래스는 명시적으로 static이라고 적어주어야 함
+* Predator인터페이스를 이와 같이 추상 클래스로 변경하면 Predator인터페이스를 상속했던 BarkablePredator인터페이스는 더 이상 사용이 불가능하므로, 다음과 같이 삭제해야 한다. 그리고 Tiger, Lion 클래스도 Animal클래스 대신 PRedator 추상 클래스를 상속하도록 변경해야 한다.
